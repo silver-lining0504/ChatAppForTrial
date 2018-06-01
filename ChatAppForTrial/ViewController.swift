@@ -42,11 +42,16 @@ class ViewController: UIViewController,UITextFieldDelegate {
         let messageData = ["name": nameField.text!, "message": messageField.text!]
         
         databaseRef.childByAutoId().setValue(messageData)
-        
         textField.resignFirstResponder()
         messageField.text = ""
         
         return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textView.resignFirstResponder()
+        nameField.resignFirstResponder()
+        messageField.resignFirstResponder()
     }
 
     
